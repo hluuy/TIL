@@ -12,7 +12,7 @@ Hi, there!
 ## Studying
 현재 공부는 이렇게 하고 있어요 
 
- ![python](https://emoji.gg/emoji/1887_python) [Python](https://swamp-shaker-ff8.notion.site/115a0378972f4abe8b7a4cc12ffd778a?v=22bb8966251443fd803432e5d8078380&pvs=4)
+ <a href="https://emoji.gg/emoji/1887_python"><img src="https://cdn3.emoji.gg/emojis/1887_python.png" width="15px" height="15px" alt="python"></a> [Python](https://swamp-shaker-ff8.notion.site/115a0378972f4abe8b7a4cc12ffd778a?v=22bb8966251443fd803432e5d8078380&pvs=4)
 
 ---
 
