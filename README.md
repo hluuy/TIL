@@ -1,7 +1,8 @@
+:raising_hand: :raising_hand:
 ```
 Hi, there! 
 ```
-:raising_hand: :raising_hand:
+
 
 # 안녕하세요 코린이 유영준입니다. :baby_chick::baby_chick:
 
