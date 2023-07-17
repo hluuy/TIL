@@ -1,5 +1,5 @@
-:raising_hand: :raising_hand:
+### Today I Learned
 ```
-Hi, there! 
+하루동안 공부한 것들을 모아놨어요
 ```
 
