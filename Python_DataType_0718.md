@@ -72,7 +72,8 @@
 2. 인덱싱(Indexing) : 각 값에 고유한 인덱스를 가지며, 특정 위치의 값을 선택하고 수정
 3. 슬라이싱(Slicing) : 인덱스 범위를 조절해 부분적인 값 추출 가능
     
-    ![index.png](Python%20-%20Data%20Type%20ea257e64c909420e8d90bf685e208d1e/index.png)
+    ![index](https://github.com/hluuy/TIL/assets/103430344/3c41a78d-c0b8-4f10-98d4-4775f2289a4d)
+
     
     → [ 2 : 4 ] = ‘ ll ’, [ : 3 ] = ‘hel’, [ 3 : ] = ‘lo’, [ 0 : 5 : 2 ] = h
     
