@@ -50,7 +50,9 @@
     
     <aside>
     🗒️ 1)  314 * 0.01 ⇒ number = 314e-2 = 3.14
+        
     2)  print(type(number)) ⇒ float
+   
     3)  print(number) ⇒ 3.14
     
     </aside>
