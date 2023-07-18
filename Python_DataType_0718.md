@@ -49,11 +49,11 @@
     c. 지수 표현 방식
     
     <aside>
-    🗒️  1)  314 * 0.01 ⇒ number = 314e-2 = 3.14
+    🗒️1)  314 * 0.01 ⇒ number = 314e-2 = 3.14
         
-        2)  print(type(number)) ⇒ float
+      2)  print(type(number)) ⇒ float
    
-        3)  print(number) ⇒ 3.14
+      3)  print(number) ⇒ 3.14
     
     </aside>
     
