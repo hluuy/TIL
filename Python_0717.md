@@ -1,6 +1,6 @@
 # 목차
 [1. Program](#Program)  
-[2. Python?](#Python?) 
+[2. Python?](#Python?)  
 [3. 표현식](#표현식---Expression)  
 [4. 평가](#평가---Evaluate)  
 [5. Type](#Type)  
