@@ -157,6 +157,10 @@
     ```python
     my_tuple = (1, 'a', 3, 'b', 5)
     my_tuple[1] = 'z' -> error
+
+    my_tuple_1 = ( )
+    my_tuple_2 = (1, )
+    my_tuple_3 = (1, 'a', 3, 'b', 5)
     ```
     
     <aside>
