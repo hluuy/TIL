@@ -239,14 +239,16 @@ print('global', num)  ->  error
     ```
     
 
-![scope 순서도.png](Python%20-%20Functions%2022dd188e1d1c471eb6f64caf5796ad33/scope_%25EC%2588%259C%25EC%2584%259C%25EB%258F%2584.png)
+![scope 순서도](https://github.com/hluuy/TIL/assets/103430344/cb203025-f753-4ec7-b067-b5df49526421)
+
 
 ### ‘global’ 키워드
 
 - 변수의 scope를 전역 범위로 지정하기 위해 사용
 - 일반적으로 함수 내에서 전역 변수를 수정하려는 경우에 사용
 
-![global 키워드.png](Python%20-%20Functions%2022dd188e1d1c471eb6f64caf5796ad33/global_%25ED%2582%25A4%25EC%259B%258C%25EB%2593%259C.png)
+![global 키워드](https://github.com/hluuy/TIL/assets/103430344/ed4d0b5a-daec-403b-bce4-4eaf391ad233)
+
 
 - global 키워드는 가급적 사용하지 않는 것을 권장
 
@@ -442,7 +444,8 @@ print(math.sqrt(4))  ->  2
 
 ⇒ 관련된 모듈들을 하나의 폴더에 모아 놓은 것
 
-![패키지 조직도.png](Python%20-%20Functions%2022dd188e1d1c471eb6f64caf5796ad33/%25ED%258C%25A8%25ED%2582%25A4%25EC%25A7%2580_%25EC%25A1%25B0%25EC%25A7%2581%25EB%258F%2584.png)
+![패키지 조직도](https://github.com/hluuy/TIL/assets/103430344/3ab339e5-ec13-4e59-8d43-57d8db1ba071)
+
 
 ### pip
 
