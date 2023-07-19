@@ -1,4 +1,4 @@
-#목차
+# 목차
 [1. Data Type](#Data-Type)  
 [2. Numeric Type](#Numeric-Type)  
 [3. Sequence Type](#Sequence-Type)  
