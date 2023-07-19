@@ -1,5 +1,12 @@
 # 목차
 [1. Program](#Program)
+[2. Python?](#Python?)
+[3. 표현식](#표현식---Expression)
+[4. 평가](#평가---Evaluate)
+[5. Type](#Type)
+[6. Data](#데이터)
+[7. 연산자](#연산자)
+[8. 변수](#변수---Variable)
 
 # Python 기초문법
 
@@ -21,7 +28,7 @@ Programming 언어 = 컴퓨터와 소통하기 위한 언어
 
 ---
 
-## Phtyon?
+## Python?
 
 Phtyon이 실행되는 방법
 
