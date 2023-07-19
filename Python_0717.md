@@ -1,6 +1,6 @@
 # 목차
 [1. Program](#Program)  
-[2. Python?]([Python?](https://github.com/hluuy/TIL/blob/main/Python_0717.md#python))  
+[2. Python?](#Python?) 
 [3. 표현식](#표현식---Expression)  
 [4. 평가](#평가---Evaluate)  
 [5. Type](#Type)  
