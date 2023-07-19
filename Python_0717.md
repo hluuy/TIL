@@ -1,3 +1,6 @@
+# 목차
+[1. Program](#Program)
+
 # Python 기초문법
 
 날짜: 2023년 7월 17일
