@@ -204,7 +204,7 @@
 
 ---
 
-## Non-sequence Types
+## Non-sequence Type
 
 1. dict
     1. **key - value 쌍**으로 이루어진 순서와 중복이 없는 변경 가능한 자료형
@@ -251,7 +251,7 @@
 
 ---
 
-## Other Types
+## Other Type
 
 1. None
     1. Python에서 ‘값이 없음’을 표현하는 자료형
