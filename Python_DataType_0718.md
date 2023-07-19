@@ -1,8 +1,16 @@
+#목차
+[1. Data Type](#Data-Type)  
+[2. Numeric Type](#Numeric-Type)  
+[3. Sequence Type](#Sequence-Type)  
+[4. Non-sequence Type](#Non-sequence-Type)  
+[5. Other Type](#Other-Type)  
+[6. 불변과 가변](#불변과-가변)  
+
 # Python - Data Type
 
 날짜: 2023년 7월 18일
 
-## Date Type
+## Data Type
 ⇒ 값의 종류와 그 값에 적용 가능한 연산과 동작을 결정하는 속성
 
 → 값들을 구분하고, 어떻게 다루어야 하는지 알 수 있음  
