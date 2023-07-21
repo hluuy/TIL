@@ -13,7 +13,8 @@
 ⇒ 주어진 조건식을 평가하여 해당 조건이 참(True)인 경우에만 코드 실행
 
 <aside>
-🗒️ if,  elif,  else
+    
+    🗒️ if,  elif,  else
 
 </aside>
 
