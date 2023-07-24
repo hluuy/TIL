@@ -1,3 +1,8 @@
+# 목차
+[1. 데이터 구조](#데이터-구조---Data-Structure)  
+[2. Method](#메서드---method)  
+[3. 문자열](#문자열)  
+[4. 리스트](#리스트)  
 # Python - Data Structure
 
 날짜: 2023년 7월 24일
