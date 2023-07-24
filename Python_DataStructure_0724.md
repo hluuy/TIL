@@ -24,12 +24,13 @@
 ⇒ 객체에 속한 함수, 객체의 상태를 조작하거나 동작을 수행
 
 <aside>
-🗒️ 메서드 특징
+  
+    🗒️ 메서드 특징
 
-- 클래스 (class) 내부에 정의되는 함수
-- 클래스는 파이썬에서 ‘타입을 표현하는 방법’
+    - 클래스 (class) 내부에 정의되는 함수
+    - 클래스는 파이썬에서 ‘타입을 표현하는 방법’
 
-⇒ 객체 = 클래스
+    ⇒ 객체 = 클래스
 
 </aside>
 
@@ -146,7 +147,8 @@ print(string4.istitle())
 ### 조작 메서드 (새로운 문자열 반환)
 
 <aside>
-🗒️ [EBNF 표기법](https://ko.wikipedia.org/wiki/%EB%B0%B0%EC%BB%A4%EC%8A%A4-%EB%82%98%EC%9A%B0%EB%A5%B4_%ED%91%9C%EA%B8%B0%EB%B2%95)
+  
+  🗒️ [EBNF 표기법](https://ko.wikipedia.org/wiki/%EB%B0%B0%EC%BB%A4%EC%8A%A4-%EB%82%98%EC%9A%B0%EB%A5%B4_%ED%91%9C%EA%B8%B0%EB%B2%95)
 
 </aside>
 
@@ -206,7 +208,8 @@ print(new_text4)
 ```
 
 <aside>
-🗒️ 메서드는 이어서 사용 가능
+  
+    🗒️ 메서드는 이어서 사용 가능
 
 </aside>
 
@@ -248,10 +251,12 @@ print(my_list)
 ```
 
 <aside>
-🗒️ append와 extend의 차이
+  
+    🗒️ append와 extend의 차이
 
-- append는 리스트 그 자체 그대로 들어감
-- extend는 리스트 안의 값이 들어감
+    - append는 리스트 그 자체 그대로 들어감
+    - extend는 리스트 안의 값이 들어감
+    
 </aside>
 
 - .insert(i, x) : 리스트의 지정한 인덱스 i 위치에 항목 x를 삽입
@@ -363,7 +368,8 @@ print(count)
 - .innumeric() : .isdigit()과 유사하지만, 몇 가지 추가적인 유니코드 문자들을 인식
 
 <aside>
-🗒️ isdecimal ⊆ isdigit ⊆ isnumeric
+  
+    🗒️ isdecimal ⊆ isdigit ⊆ isnumeric
 
 </aside>
 
