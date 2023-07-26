@@ -1,3 +1,7 @@
+# 목차
+[1. Set](#세트)  
+[2. Dictionary](#딕셔너리)  
+[3. 얕은 복사와 깊은 복사](#복사)  
 # Python - Data Sturcture 2
 
 날짜: 2023년 7월 25일
