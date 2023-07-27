@@ -104,7 +104,7 @@ class Person:
    def __init__(self, name, age):
       self.name = name
       self.age = age
-      Person.number_of_people += 1
+      Person.number_of_people += 1  #==self.__class__.number_of_people
 
    def introduce(self):
         print(f'제 이름은 {self.name}이고, 저는 {self.age} 살 입니다.')
@@ -112,3 +112,55 @@ class Person:
 person1 = Person("Alice", 25)
 person1.introduce()
 print(Person.number_of_people)
+
+#-------------------------------------
+# hw_7_2.py
+
+class StringRepeater:
+   def repeat_string(self, count, string):
+
+      for _ in range(count):
+         print(string)
+
+
+repeater1 = StringRepeater()
+repeater1.repeat_string(3, 'Hello')
+#---------------------------------------
+# hw_7_4.py 심화
+
+# 아래 클래스를 수정하시오.
+class Person:
+   number_of_people = 0
+   def __init__(self, name, age):
+      self.name = name
+      self.age = age
+      self.__class__.number_of_people += 1
+
+   def introduce(self):
+        print(f'제 이름은 {self.name}이고, 저는 {self.age} 살 입니다.')
+
+   @classmethod
+   def get_number_of_people(cls):
+      return cls.number_of_people
+  
+person1 = Person("Alice", 25)
+person1.introduce()
+print(Person.number_of_people)
+person2 = Person("duke", 30)
+person2.introduce()
+print(Person.get_number_of_people())
+#---------------------------------------
+# ws_7_2.py 심화
+
+# 아래 클래스를 수정하시오.
+class Shape():
+   def __init__(self, width, height):
+      self.a = (width, height)
+   
+   def calculate_area(self):
+      return self.a[0] * self.a[1]
+
+
+shape1 = Shape(5, 3)
+area1 = shape1.calculate_area()
+print(area1)
