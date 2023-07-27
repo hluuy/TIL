@@ -2,7 +2,7 @@
 [1. 상속](#상속---Inheritance)  
 [2. 클래스 상속](#클래스-상속)  
 [3. 다중 상속](#다중-상속)  
-[4. 에러와 예외](#Errors-&-Exception---에러와-예외)  
+[4. 에러와 예외](#Errors--Exception---에러와-예외)  
 
 # Python - OOP2
 
