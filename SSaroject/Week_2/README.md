@@ -287,7 +287,8 @@ plt.ylabel('Close')
 plt.show()
 ```
 
-![Untitled](/uploads/e982fa9814732560cc3a6fd2ce9b1c35/Untitled.png)
+![Untitled](https://github.com/hluuy/TIL/assets/103430344/4aab7e89-28b2-43e8-92b7-920b4c8fda3c)
+
 
 ---
 
@@ -386,7 +387,8 @@ plt.ylabel('Close')
 plt.show()
 ```
 
-![Untitled_1](/uploads/9fce56a7e7e990ddb3890d8638279901/Untitled_1.png)
+![Untitled 1](https://github.com/hluuy/TIL/assets/103430344/515b3c67-3c93-4d13-8d19-099397b879ce)
+
 
 ---
 
@@ -443,7 +445,8 @@ plt.legend()
 plt.show
 ```
 
-![Untitled_2](/uploads/9c8af7edc133597443c9a69cffb82574/Untitled_2.png)
+![Untitled 2](https://github.com/hluuy/TIL/assets/103430344/05884252-f0b6-4250-ab85-bb649e160f85)
+
 
 ---
 
