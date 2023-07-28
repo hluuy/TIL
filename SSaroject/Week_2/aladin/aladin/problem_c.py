@@ -19,7 +19,8 @@ def bestseller_book():
 
     response = requests.get(URL, params=params).json()
 
-    lst = response['item']
+    book_list = response['item']
+    book_list
 
     result = []
     for l in lst:
