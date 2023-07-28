@@ -158,4 +158,3 @@ user = UserInfo()
 user.get_user_info()
 user.display_user_info()
 
-
