@@ -1,0 +1,14 @@
+문제 3 : 이진 탐색
+1. 이진탐색에 대해 간단히 설명하시오.
+- 이진탐색은 원하는 값을 찾기 위한 탐색 방법 중 하나이다. 이진탐색은 나열되어 있는 리스트에서 사용 가능하며, 리스트의 중간 값과 찾길 원하는 값을 비교하여 두 값이 동일할 때까지 절반씩 줄여나간다.
+
+2. 
+start != end:
+        middle = (start + end) // 2
+        if a[middle] == key:
+            return True
+        elif a[middle] > key:
+            end = middle + 1
+        elif a[middle] < key:
+            start = middle + 1
+        else:
