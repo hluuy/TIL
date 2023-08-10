@@ -10,14 +10,15 @@
 - Python에서는 데이터 초기화를 통해 변수 선언과 초기화가 가능
 
 <aside>
-🗒️ 2차원 배열
-arr = [[0, 1, 2, 3], [4, 5, 6, 7]]
+	
+    🗒️ 2차원 배열
+    arr = [[0, 1, 2, 3], [4, 5, 6, 7]]
 
-| 0 | 1 | 2 | 3 |
-| --- | --- | --- | --- |
-| 4 | 5 | 6 | 7 |
+    | 0 | 1 | 2 | 3 |
+    | - | - | - | - |
+    | 4 | 5 | 6 | 7 |
 
-→ List arr
+    → List arr
 
 </aside>
 
@@ -35,6 +36,68 @@ arr = [list(map(int, input())) for _ in range(N)
 # 123
 # 456
 # 789
+```
+2차원 리스트
+
+```python
+'''
+3
+3
+1 2 3 4 5
+1 2 3 4 5
+1 2 3 4 5
+2
+1 2 3 4 5 6 7 8 9 10
+1 2 3 4 5 6 7 8 9 10
+3
+1 2 3
+1 2 3
+1 2 3
+'''
+T = int(input())
+for _ in range(T):
+	N = int(input())
+
+		
+	# 1번
+	lst = []
+	for _ in range(N):
+		lst.append(list(map(int, input())))
+
+	# 2번
+	lst = [list(map(int, input().split()))for _ in range(N)]
+
+	print(lst) # [[1, 2, 3, 4, 5], [1, 2, 3, 4, 5], [1, 2, 3, 4, 5]]
+
+	row(행) = len(lst)
+	col(열) = len(lst[0])
+
+	#행 우선 탐색
+	for i in range(row):
+		for j in range(col):
+			print(lst[i][j], end=' ')
+		print() # 안쪽 for문에서 바깥으로 나가기 전에 출력
+
+	#열 우선 탐색 1
+	for j in range(col):
+		for i in range(row):
+			print(lst[i][j], end=' ')
+		print() # 안쪽 for문에서 바깥으로 나가기 전에 출력
+
+	#열 우선 탐색 2
+	for i in range(row):
+		for j in range(col):
+			print(lst[j][i])
+
+	#지그재그
+	for i in range(row):
+		for i in range(col):
+			if i % 2: # row == 3 -> 0, 1, 2
+				print(lst[i][col - 1 - j], end=' ') # 교안 내용을 쉽게 표현하면 이렇게
+			else:
+				print(lst[i][j], end=' ')
+		print()
+
 ```
 
 ### 배열 순회
@@ -69,10 +132,6 @@ for i in range(n):
 ### 델타를 이용한 2차 배열 탐색
 
 ⇒ 2차 배열의 한 좌표에서 4방향의 인접 배열 요소를 탐색하는 방법
-
-```python
-
-```
 
 |  | j - 1 | j | j + 1 |
 | --- | --- | --- | --- |
