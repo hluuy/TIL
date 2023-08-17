@@ -25,12 +25,13 @@
         - 수식이 끝나면 , 마지막으로 스택을 pop하여 출력
     
     <aside>
-    🗒️ 중위 표기법 vs 후위 표기법
+	    
+        🗒️ 중위 표기법 vs 후위 표기법
     
-    - 중위 표기법 (infix notation)
-        - 연산자를 피연산자의 가운데 표기하는 방법
-    - 후위 표기법 (postfix notation)
-        - 연산자를 피연산자 뒤에 표기하는 방법
+        - 중위 표기법 (infix notation)
+            - 연산자를 피연산자의 가운데 표기하는 방법
+        - 후위 표기법 (postfix notation)
+            - 연산자를 피연산자 뒤에 표기하는 방법
     </aside>
     
 
@@ -49,12 +50,13 @@
     - 부분 집합의 합 문제 등
 
 <aside>
-💡 백트래킹과 깊이우선탐색과의 차이
+	
+    💡 백트래킹과 깊이우선탐색과의 차이
 
-- 어떤 노드에서 출발하는 경로가 해결책으로 이어질 것 같지 않으면 더 이상 그 경로를 따라가지 않음으로써 시도의 횟수를 줄임(Prunning 가지치기)
-- 깊이우선탐색이 모든 경로를 추적하는데 비해 백트래킹을 불필요한 경로를 조기에 차단
-- 깊이우선탐색을 가하기에는 경우의 수가 너무나 많음. 즉, N! 가지의 경우의 수를 가진 문제에 대해 깊이우선탐색을 가하면 당연히 처리 불가능한 문제
-- 백트래킹 알고리즘을 적용하면 일반적으로 경우의 수가 줄어들미나 이 역시 최악의 경우에는 여전히 지수함수 시간(Exponential Time)을 요하므로 처리 불가능
+    - 어떤 노드에서 출발하는 경로가 해결책으로 이어질 것 같지 않으면 더 이상 그 경로를 따라가지 않음으로써 시도의 횟수를 줄임(Prunning 가지치기)
+    - 깊이우선탐색이 모든 경로를 추적하는데 비해 백트래킹을 불필요한 경로를 조기에 차단
+    - 깊이우선탐색을 가하기에는 경우의 수가 너무나 많음. 즉, N! 가지의 경우의 수를 가진 문제에 대해 깊이우선탐색을 가하면 당연히 처리 불가능한 문제
+    - 백트래킹 알고리즘을 적용하면 일반적으로 경우의 수가 줄어들미나 이 역시 최악의 경우에는 여전히 지수함수 시간(Exponential Time)을 요하므로 처리 불가능
 </aside>
 
 - 모든 후보를 검사하나?
@@ -71,12 +73,12 @@
 ```python
 # 일반 백트래킹 알고리즘
 def checknode(v) :
-		if promising(v):
-				if there is a solution at v:
-						write the solution
-				else:
-						for u in each child of v:
-								checknode(u)
+	if promising(v):
+		if there is a solution at v:
+			write the solution
+		else:
+			for u in each child of v:
+				checknode(u)
 ```
 
 ---
@@ -94,35 +96,35 @@ def checknode(v) :
 # 각 원소가 부분집합에 포함되었는지를 loop를 이용하여 확인하고 부분집합을 생성하는 방법
 bit = [0, 0, 0, 0]
 for i in range(2):
-		bit[0] = i
-		for j in range(2):
-				bit[1] = j
-				for k in range(2):
-						bit[2] = k
-						for l in range(2):
-						bit[3] = l
-						print(bit)
+	bit[0] = i
+	for j in range(2):
+		bit[1] = j
+		for k in range(2):
+			bit[2] = k
+			for l in range(2):
+				bit[3] = l
+			print(bit)
 ```
 
 ```python
 # powerset을 구하는 백트래킹 알고리즘
 def backtrack(a, k, input):
-		global MAXCANDIDATES
-		c = [0] * MAXCANDIDATES
+	global MAXCANDIDATES
+	c = [0] * MAXCANDIDATES
 
-		if k == input :
-				process_solution(a, k)
-		else:
-				k += 1
-				ncandidates = construct_candidates(a, k, input, c)
-				for i in range(ncandidates):
-						a[k] = c[i]
-						backtrack(a, k, input)
+	if k == input :
+		process_solution(a, k)
+	else:
+		k += 1
+		ncandidates = construct_candidates(a, k, input, c)
+		for i in range(ncandidates):
+			a[k] = c[i]
+			backtrack(a, k, input)
 
 def construct_candidates(a, k, input, c):
-		c[0] = True
-		c[1] = False
-		return 2
+	c[0] = True
+	c[1] = False
+	return 2
 MAXCANDIDATES = 2
 NMAX = 4
 a = [0] * NMAX
@@ -133,41 +135,41 @@ backtrack(a, 0, 3)
 # {1, 2, 3}을 포함하는 모든 순열을 생성하는 함수
 # 동일한 숫자가 포함되지 않았을 때, 각 자리 수 별로 loop을 이용해 아래와 같이 구현함
 for i1 in range(1, 4):
-		for i2 in range(1, 4):
-				if i2 != i1:
-						for i3 in range(1, 4):
-								if i3 != i1 and i3 != i2:
-										print(i1, i2, i3)
+	for i2 in range(1, 4):
+		if i2 != i1:
+			for i3 in range(1, 4):
+				if i3 != i1 and i3 != i2:
+					print(i1, i2, i3)
 ```
 
 ```python
 # 백트래킹을 이용하여 순열 구하기
 # 접근 방법은 앞의 부분집합 구하는 방법과 유사
 def backtrack(a, k, input):
-		global MAXCANDIDATES
-		c = [0] * MAXCANDIDATES
+	global MAXCANDIDATES
+	c = [0] * MAXCANDIDATES
 
-		if k == input:
-				for i in range(1, k + 1):
-						print(a[i], end=' ')
-				print()
-		else:
-				k += 1
-				ncandidates = construct_candidates(a, k, input, c)
-				for i in range(ncandidates):
-						a[k] = c[i]
-						backtrack(a, k, input)
+	if k == input:
+		for i in range(1, k + 1):
+				print(a[i], end=' ')
+		print()
+	else:
+		k += 1
+		ncandidates = construct_candidates(a, k, input, c)
+		for i in range(ncandidates):
+				a[k] = c[i]
+				backtrack(a, k, input)
 
 def construct_candidates(a, k, input, c):
-		in_perm = [False] * NMAX
+	in_perm = [False] * NMAX
 
-		for i in range(1, k):
-				in_perm[a[i]] = True
+	for i in range(1, k):
+		in_perm[a[i]] = True
 
-		ncandidates = 0
-		for i in range(1, input + 1):
-				if in_perm[i] == False:
-						c[ncandidates] = i
-						ncandidates += 1
-		return ncandidates
+	ncandidates = 0
+	for i in range(1, input + 1):
+		if in_perm[i] == False:
+			c[ncandidates] = i
+			ncandidates += 1
+	return ncandidates
 ```
