@@ -1,0 +1,774 @@
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"/><title>Django Intro</title><style>
+/* cspell:disable-file */
+/* webkit printing magic: print all background colors */
+html {
+	-webkit-print-color-adjust: exact;
+}
+* {
+	box-sizing: border-box;
+	-webkit-print-color-adjust: exact;
+}
+
+html,
+body {
+	margin: 0;
+	padding: 0;
+}
+@media only screen {
+	body {
+		margin: 2em auto;
+		max-width: 900px;
+		color: rgb(55, 53, 47);
+	}
+}
+
+body {
+	line-height: 1.5;
+	white-space: pre-wrap;
+}
+
+a,
+a.visited {
+	color: inherit;
+	text-decoration: underline;
+}
+
+.pdf-relative-link-path {
+	font-size: 80%;
+	color: #444;
+}
+
+h1,
+h2,
+h3 {
+	letter-spacing: -0.01em;
+	line-height: 1.2;
+	font-weight: 600;
+	margin-bottom: 0;
+}
+
+.page-title {
+	font-size: 2.5rem;
+	font-weight: 700;
+	margin-top: 0;
+	margin-bottom: 0.75em;
+}
+
+h1 {
+	font-size: 1.875rem;
+	margin-top: 1.875rem;
+}
+
+h2 {
+	font-size: 1.5rem;
+	margin-top: 1.5rem;
+}
+
+h3 {
+	font-size: 1.25rem;
+	margin-top: 1.25rem;
+}
+
+.source {
+	border: 1px solid #ddd;
+	border-radius: 3px;
+	padding: 1.5em;
+	word-break: break-all;
+}
+
+.callout {
+	border-radius: 3px;
+	padding: 1rem;
+}
+
+figure {
+	margin: 1.25em 0;
+	page-break-inside: avoid;
+}
+
+figcaption {
+	opacity: 0.5;
+	font-size: 85%;
+	margin-top: 0.5em;
+}
+
+mark {
+	background-color: transparent;
+}
+
+.indented {
+	padding-left: 1.5em;
+}
+
+hr {
+	background: transparent;
+	display: block;
+	width: 100%;
+	height: 1px;
+	visibility: visible;
+	border: none;
+	border-bottom: 1px solid rgba(55, 53, 47, 0.09);
+}
+
+img {
+	max-width: 100%;
+}
+
+@media only print {
+	img {
+		max-height: 100vh;
+		object-fit: contain;
+	}
+}
+
+@page {
+	margin: 1in;
+}
+
+.collection-content {
+	font-size: 0.875rem;
+}
+
+.column-list {
+	display: flex;
+	justify-content: space-between;
+}
+
+.column {
+	padding: 0 1em;
+}
+
+.column:first-child {
+	padding-left: 0;
+}
+
+.column:last-child {
+	padding-right: 0;
+}
+
+.table_of_contents-item {
+	display: block;
+	font-size: 0.875rem;
+	line-height: 1.3;
+	padding: 0.125rem;
+}
+
+.table_of_contents-indent-1 {
+	margin-left: 1.5rem;
+}
+
+.table_of_contents-indent-2 {
+	margin-left: 3rem;
+}
+
+.table_of_contents-indent-3 {
+	margin-left: 4.5rem;
+}
+
+.table_of_contents-link {
+	text-decoration: none;
+	opacity: 0.7;
+	border-bottom: 1px solid rgba(55, 53, 47, 0.18);
+}
+
+table,
+th,
+td {
+	border: 1px solid rgba(55, 53, 47, 0.09);
+	border-collapse: collapse;
+}
+
+table {
+	border-left: none;
+	border-right: none;
+}
+
+th,
+td {
+	font-weight: normal;
+	padding: 0.25em 0.5em;
+	line-height: 1.5;
+	min-height: 1.5em;
+	text-align: left;
+}
+
+th {
+	color: rgba(55, 53, 47, 0.6);
+}
+
+ol,
+ul {
+	margin: 0;
+	margin-block-start: 0.6em;
+	margin-block-end: 0.6em;
+}
+
+li > ol:first-child,
+li > ul:first-child {
+	margin-block-start: 0.6em;
+}
+
+ul > li {
+	list-style: disc;
+}
+
+ul.to-do-list {
+	padding-inline-start: 0;
+}
+
+ul.to-do-list > li {
+	list-style: none;
+}
+
+.to-do-children-checked {
+	text-decoration: line-through;
+	opacity: 0.375;
+}
+
+ul.toggle > li {
+	list-style: none;
+}
+
+ul {
+	padding-inline-start: 1.7em;
+}
+
+ul > li {
+	padding-left: 0.1em;
+}
+
+ol {
+	padding-inline-start: 1.6em;
+}
+
+ol > li {
+	padding-left: 0.2em;
+}
+
+.mono ol {
+	padding-inline-start: 2em;
+}
+
+.mono ol > li {
+	text-indent: -0.4em;
+}
+
+.toggle {
+	padding-inline-start: 0em;
+	list-style-type: none;
+}
+
+/* Indent toggle children */
+.toggle > li > details {
+	padding-left: 1.7em;
+}
+
+.toggle > li > details > summary {
+	margin-left: -1.1em;
+}
+
+.selected-value {
+	display: inline-block;
+	padding: 0 0.5em;
+	background: rgba(206, 205, 202, 0.5);
+	border-radius: 3px;
+	margin-right: 0.5em;
+	margin-top: 0.3em;
+	margin-bottom: 0.3em;
+	white-space: nowrap;
+}
+
+.collection-title {
+	display: inline-block;
+	margin-right: 1em;
+}
+
+.page-description {
+    margin-bottom: 2em;
+}
+
+.simple-table {
+	margin-top: 1em;
+	font-size: 0.875rem;
+	empty-cells: show;
+}
+.simple-table td {
+	height: 29px;
+	min-width: 120px;
+}
+
+.simple-table th {
+	height: 29px;
+	min-width: 120px;
+}
+
+.simple-table-header-color {
+	background: rgb(247, 246, 243);
+	color: black;
+}
+.simple-table-header {
+	font-weight: 500;
+}
+
+time {
+	opacity: 0.5;
+}
+
+.icon {
+	display: inline-block;
+	max-width: 1.2em;
+	max-height: 1.2em;
+	text-decoration: none;
+	vertical-align: text-bottom;
+	margin-right: 0.5em;
+}
+
+img.icon {
+	border-radius: 3px;
+}
+
+.user-icon {
+	width: 1.5em;
+	height: 1.5em;
+	border-radius: 100%;
+	margin-right: 0.5rem;
+}
+
+.user-icon-inner {
+	font-size: 0.8em;
+}
+
+.text-icon {
+	border: 1px solid #000;
+	text-align: center;
+}
+
+.page-cover-image {
+	display: block;
+	object-fit: cover;
+	width: 100%;
+	max-height: 30vh;
+}
+
+.page-header-icon {
+	font-size: 3rem;
+	margin-bottom: 1rem;
+}
+
+.page-header-icon-with-cover {
+	margin-top: -0.72em;
+	margin-left: 0.07em;
+}
+
+.page-header-icon img {
+	border-radius: 3px;
+}
+
+.link-to-page {
+	margin: 1em 0;
+	padding: 0;
+	border: none;
+	font-weight: 500;
+}
+
+p > .user {
+	opacity: 0.5;
+}
+
+td > .user,
+td > time {
+	white-space: nowrap;
+}
+
+input[type="checkbox"] {
+	transform: scale(1.5);
+	margin-right: 0.6em;
+	vertical-align: middle;
+}
+
+p {
+	margin-top: 0.5em;
+	margin-bottom: 0.5em;
+}
+
+.image {
+	border: none;
+	margin: 1.5em 0;
+	padding: 0;
+	border-radius: 0;
+	text-align: center;
+}
+
+.code,
+code {
+	background: rgba(135, 131, 120, 0.15);
+	border-radius: 3px;
+	padding: 0.2em 0.4em;
+	border-radius: 3px;
+	font-size: 85%;
+	tab-size: 2;
+}
+
+code {
+	color: #eb5757;
+}
+
+.code {
+	padding: 1.5em 1em;
+}
+
+.code-wrap {
+	white-space: pre-wrap;
+	word-break: break-all;
+}
+
+.code > code {
+	background: none;
+	padding: 0;
+	font-size: 100%;
+	color: inherit;
+}
+
+blockquote {
+	font-size: 1.25em;
+	margin: 1em 0;
+	padding-left: 1em;
+	border-left: 3px solid rgb(55, 53, 47);
+}
+
+.bookmark {
+	text-decoration: none;
+	max-height: 8em;
+	padding: 0;
+	display: flex;
+	width: 100%;
+	align-items: stretch;
+}
+
+.bookmark-title {
+	font-size: 0.85em;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	height: 1.75em;
+	white-space: nowrap;
+}
+
+.bookmark-text {
+	display: flex;
+	flex-direction: column;
+}
+
+.bookmark-info {
+	flex: 4 1 180px;
+	padding: 12px 14px 14px;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+}
+
+.bookmark-image {
+	width: 33%;
+	flex: 1 1 180px;
+	display: block;
+	position: relative;
+	object-fit: cover;
+	border-radius: 1px;
+}
+
+.bookmark-description {
+	color: rgba(55, 53, 47, 0.6);
+	font-size: 0.75em;
+	overflow: hidden;
+	max-height: 4.5em;
+	word-break: break-word;
+}
+
+.bookmark-href {
+	font-size: 0.75em;
+	margin-top: 0.25em;
+}
+
+.sans { font-family: ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol"; }
+.code { font-family: "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace; }
+.serif { font-family: Lyon-Text, Georgia, ui-serif, serif; }
+.mono { font-family: iawriter-mono, Nitti, Menlo, Courier, monospace; }
+.pdf .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK JP'; }
+.pdf:lang(zh-CN) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK SC'; }
+.pdf:lang(zh-TW) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK TC'; }
+.pdf:lang(ko-KR) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK KR'; }
+.pdf .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK JP'; }
+.pdf:lang(zh-CN) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC'; }
+.pdf:lang(zh-TW) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK TC'; }
+.pdf:lang(ko-KR) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK KR'; }
+.pdf .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK JP'; }
+.pdf:lang(zh-CN) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK SC'; }
+.pdf:lang(zh-TW) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK TC'; }
+.pdf:lang(ko-KR) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK KR'; }
+.pdf .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK JP'; }
+.pdf:lang(zh-CN) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC'; }
+.pdf:lang(zh-TW) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK TC'; }
+.pdf:lang(ko-KR) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK KR'; }
+.highlight-default {
+	color: rgba(55, 53, 47, 1);
+}
+.highlight-gray {
+	color: rgba(120, 119, 116, 1);
+	fill: rgba(120, 119, 116, 1);
+}
+.highlight-brown {
+	color: rgba(159, 107, 83, 1);
+	fill: rgba(159, 107, 83, 1);
+}
+.highlight-orange {
+	color: rgba(217, 115, 13, 1);
+	fill: rgba(217, 115, 13, 1);
+}
+.highlight-yellow {
+	color: rgba(203, 145, 47, 1);
+	fill: rgba(203, 145, 47, 1);
+}
+.highlight-teal {
+	color: rgba(68, 131, 97, 1);
+	fill: rgba(68, 131, 97, 1);
+}
+.highlight-blue {
+	color: rgba(51, 126, 169, 1);
+	fill: rgba(51, 126, 169, 1);
+}
+.highlight-purple {
+	color: rgba(144, 101, 176, 1);
+	fill: rgba(144, 101, 176, 1);
+}
+.highlight-pink {
+	color: rgba(193, 76, 138, 1);
+	fill: rgba(193, 76, 138, 1);
+}
+.highlight-red {
+	color: rgba(212, 76, 71, 1);
+	fill: rgba(212, 76, 71, 1);
+}
+.highlight-gray_background {
+	background: rgba(241, 241, 239, 1);
+}
+.highlight-brown_background {
+	background: rgba(244, 238, 238, 1);
+}
+.highlight-orange_background {
+	background: rgba(251, 236, 221, 1);
+}
+.highlight-yellow_background {
+	background: rgba(251, 243, 219, 1);
+}
+.highlight-teal_background {
+	background: rgba(237, 243, 236, 1);
+}
+.highlight-blue_background {
+	background: rgba(231, 243, 248, 1);
+}
+.highlight-purple_background {
+	background: rgba(244, 240, 247, 0.8);
+}
+.highlight-pink_background {
+	background: rgba(249, 238, 243, 0.8);
+}
+.highlight-red_background {
+	background: rgba(253, 235, 236, 1);
+}
+.block-color-default {
+	color: inherit;
+	fill: inherit;
+}
+.block-color-gray {
+	color: rgba(120, 119, 116, 1);
+	fill: rgba(120, 119, 116, 1);
+}
+.block-color-brown {
+	color: rgba(159, 107, 83, 1);
+	fill: rgba(159, 107, 83, 1);
+}
+.block-color-orange {
+	color: rgba(217, 115, 13, 1);
+	fill: rgba(217, 115, 13, 1);
+}
+.block-color-yellow {
+	color: rgba(203, 145, 47, 1);
+	fill: rgba(203, 145, 47, 1);
+}
+.block-color-teal {
+	color: rgba(68, 131, 97, 1);
+	fill: rgba(68, 131, 97, 1);
+}
+.block-color-blue {
+	color: rgba(51, 126, 169, 1);
+	fill: rgba(51, 126, 169, 1);
+}
+.block-color-purple {
+	color: rgba(144, 101, 176, 1);
+	fill: rgba(144, 101, 176, 1);
+}
+.block-color-pink {
+	color: rgba(193, 76, 138, 1);
+	fill: rgba(193, 76, 138, 1);
+}
+.block-color-red {
+	color: rgba(212, 76, 71, 1);
+	fill: rgba(212, 76, 71, 1);
+}
+.block-color-gray_background {
+	background: rgba(241, 241, 239, 1);
+}
+.block-color-brown_background {
+	background: rgba(244, 238, 238, 1);
+}
+.block-color-orange_background {
+	background: rgba(251, 236, 221, 1);
+}
+.block-color-yellow_background {
+	background: rgba(251, 243, 219, 1);
+}
+.block-color-teal_background {
+	background: rgba(237, 243, 236, 1);
+}
+.block-color-blue_background {
+	background: rgba(231, 243, 248, 1);
+}
+.block-color-purple_background {
+	background: rgba(244, 240, 247, 0.8);
+}
+.block-color-pink_background {
+	background: rgba(249, 238, 243, 0.8);
+}
+.block-color-red_background {
+	background: rgba(253, 235, 236, 1);
+}
+.select-value-color-interactiveBlue { background-color: rgba(35, 131, 226, .07); }
+.select-value-color-pink { background-color: rgba(245, 224, 233, 1); }
+.select-value-color-purple { background-color: rgba(232, 222, 238, 1); }
+.select-value-color-green { background-color: rgba(219, 237, 219, 1); }
+.select-value-color-gray { background-color: rgba(227, 226, 224, 1); }
+.select-value-color-translucentGray { background-color: rgba(255, 255, 255, 0.0375); }
+.select-value-color-orange { background-color: rgba(250, 222, 201, 1); }
+.select-value-color-brown { background-color: rgba(238, 224, 218, 1); }
+.select-value-color-red { background-color: rgba(255, 226, 221, 1); }
+.select-value-color-yellow { background-color: rgba(253, 236, 200, 1); }
+.select-value-color-blue { background-color: rgba(211, 229, 239, 1); }
+.select-value-color-pageGlass { background-color: undefined; }
+.select-value-color-washGlass { background-color: undefined; }
+
+.checkbox {
+	display: inline-flex;
+	vertical-align: text-bottom;
+	width: 16;
+	height: 16;
+	background-size: 16px;
+	margin-left: 2px;
+	margin-right: 5px;
+}
+
+.checkbox-on {
+	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20width%3D%2216%22%20height%3D%2216%22%20fill%3D%22%2358A9D7%22%2F%3E%0A%3Cpath%20d%3D%22M6.71429%2012.2852L14%204.9995L12.7143%203.71436L6.71429%209.71378L3.28571%206.2831L2%207.57092L6.71429%2012.2852Z%22%20fill%3D%22white%22%2F%3E%0A%3C%2Fsvg%3E");
+}
+
+.checkbox-off {
+	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20x%3D%220.75%22%20y%3D%220.75%22%20width%3D%2214.5%22%20height%3D%2214.5%22%20fill%3D%22white%22%20stroke%3D%22%2336352F%22%20stroke-width%3D%221.5%22%2F%3E%0A%3C%2Fsvg%3E");
+}
+	
+</style></head><body><article id="a292faa7-cdde-490d-8945-7e9228751d9f" class="page sans"><header><div class="page-header-icon undefined"><span class="icon">❗</span></div><h1 class="page-title">Django Intro</h1><p class="page-description"></p><table class="properties"><tbody><tr class="property-row property-row-date"><th><span class="icon property-icon"><svg role="graphics-symbol" viewBox="0 0 16 16" style="width:14px;height:14px;display:block;fill:rgba(55, 53, 47, 0.45);flex-shrink:0" class="typesDate"><path d="M3.29688 14.4561H12.7031C14.1797 14.4561 14.9453 13.6904 14.9453 12.2344V3.91504C14.9453 2.45215 14.1797 1.69336 12.7031 1.69336H3.29688C1.82031 1.69336 1.05469 2.45215 1.05469 3.91504V12.2344C1.05469 13.6973 1.82031 14.4561 3.29688 14.4561ZM3.27637 13.1162C2.70898 13.1162 2.39453 12.8154 2.39453 12.2207V5.9043C2.39453 5.30273 2.70898 5.00879 3.27637 5.00879H12.71C13.2842 5.00879 13.6055 5.30273 13.6055 5.9043V12.2207C13.6055 12.8154 13.2842 13.1162 12.71 13.1162H3.27637ZM6.68066 7.38086H7.08398C7.33008 7.38086 7.41211 7.30566 7.41211 7.05957V6.66309C7.41211 6.41699 7.33008 6.3418 7.08398 6.3418H6.68066C6.44141 6.3418 6.35938 6.41699 6.35938 6.66309V7.05957C6.35938 7.30566 6.44141 7.38086 6.68066 7.38086ZM8.92285 7.38086H9.31934C9.56543 7.38086 9.64746 7.30566 9.64746 7.05957V6.66309C9.64746 6.41699 9.56543 6.3418 9.31934 6.3418H8.92285C8.67676 6.3418 8.59473 6.41699 8.59473 6.66309V7.05957C8.59473 7.30566 8.67676 7.38086 8.92285 7.38086ZM11.1582 7.38086H11.5547C11.8008 7.38086 11.8828 7.30566 11.8828 7.05957V6.66309C11.8828 6.41699 11.8008 6.3418 11.5547 6.3418H11.1582C10.9121 6.3418 10.8301 6.41699 10.8301 6.66309V7.05957C10.8301 7.30566 10.9121 7.38086 11.1582 7.38086ZM4.44531 9.58203H4.84863C5.09473 9.58203 5.17676 9.50684 5.17676 9.26074V8.86426C5.17676 8.61816 5.09473 8.54297 4.84863 8.54297H4.44531C4.20605 8.54297 4.12402 8.61816 4.12402 8.86426V9.26074C4.12402 9.50684 4.20605 9.58203 4.44531 9.58203ZM6.68066 9.58203H7.08398C7.33008 9.58203 7.41211 9.50684 7.41211 9.26074V8.86426C7.41211 8.61816 7.33008 8.54297 7.08398 8.54297H6.68066C6.44141 8.54297 6.35938 8.61816 6.35938 8.86426V9.26074C6.35938 9.50684 6.44141 9.58203 6.68066 9.58203ZM8.92285 9.58203H9.31934C9.56543 9.58203 9.64746 9.50684 9.64746 9.26074V8.86426C9.64746 8.61816 9.56543 8.54297 9.31934 8.54297H8.92285C8.67676 8.54297 8.59473 8.61816 8.59473 8.86426V9.26074C8.59473 9.50684 8.67676 9.58203 8.92285 9.58203ZM11.1582 9.58203H11.5547C11.8008 9.58203 11.8828 9.50684 11.8828 9.26074V8.86426C11.8828 8.61816 11.8008 8.54297 11.5547 8.54297H11.1582C10.9121 8.54297 10.8301 8.61816 10.8301 8.86426V9.26074C10.8301 9.50684 10.9121 9.58203 11.1582 9.58203ZM4.44531 11.7832H4.84863C5.09473 11.7832 5.17676 11.708 5.17676 11.4619V11.0654C5.17676 10.8193 5.09473 10.7441 4.84863 10.7441H4.44531C4.20605 10.7441 4.12402 10.8193 4.12402 11.0654V11.4619C4.12402 11.708 4.20605 11.7832 4.44531 11.7832ZM6.68066 11.7832H7.08398C7.33008 11.7832 7.41211 11.708 7.41211 11.4619V11.0654C7.41211 10.8193 7.33008 10.7441 7.08398 10.7441H6.68066C6.44141 10.7441 6.35938 10.8193 6.35938 11.0654V11.4619C6.35938 11.708 6.44141 11.7832 6.68066 11.7832ZM8.92285 11.7832H9.31934C9.56543 11.7832 9.64746 11.708 9.64746 11.4619V11.0654C9.64746 10.8193 9.56543 10.7441 9.31934 10.7441H8.92285C8.67676 10.7441 8.59473 10.8193 8.59473 11.0654V11.4619C8.59473 11.708 8.67676 11.7832 8.92285 11.7832Z"></path></svg></span>날짜</th><td><time>@2023년 9월 12일</time></td></tr><tr class="property-row property-row-multi_select"><th><span class="icon property-icon"><svg role="graphics-symbol" viewBox="0 0 16 16" style="width:14px;height:14px;display:block;fill:rgba(55, 53, 47, 0.45);flex-shrink:0" class="typesMultipleSelect"><path d="M1.91602 4.83789C2.44238 4.83789 2.87305 4.40723 2.87305 3.87402C2.87305 3.34766 2.44238 2.91699 1.91602 2.91699C1.38281 2.91699 0.952148 3.34766 0.952148 3.87402C0.952148 4.40723 1.38281 4.83789 1.91602 4.83789ZM5.1084 4.52344H14.3984C14.7607 4.52344 15.0479 4.23633 15.0479 3.87402C15.0479 3.51172 14.7607 3.22461 14.3984 3.22461H5.1084C4.74609 3.22461 4.45898 3.51172 4.45898 3.87402C4.45898 4.23633 4.74609 4.52344 5.1084 4.52344ZM1.91602 9.03516C2.44238 9.03516 2.87305 8.60449 2.87305 8.07129C2.87305 7.54492 2.44238 7.11426 1.91602 7.11426C1.38281 7.11426 0.952148 7.54492 0.952148 8.07129C0.952148 8.60449 1.38281 9.03516 1.91602 9.03516ZM5.1084 8.7207H14.3984C14.7607 8.7207 15.0479 8.43359 15.0479 8.07129C15.0479 7.70898 14.7607 7.42188 14.3984 7.42188H5.1084C4.74609 7.42188 4.45898 7.70898 4.45898 8.07129C4.45898 8.43359 4.74609 8.7207 5.1084 8.7207ZM1.91602 13.2324C2.44238 13.2324 2.87305 12.8018 2.87305 12.2686C2.87305 11.7422 2.44238 11.3115 1.91602 11.3115C1.38281 11.3115 0.952148 11.7422 0.952148 12.2686C0.952148 12.8018 1.38281 13.2324 1.91602 13.2324ZM5.1084 12.918H14.3984C14.7607 12.918 15.0479 12.6309 15.0479 12.2686C15.0479 11.9062 14.7607 11.6191 14.3984 11.6191H5.1084C4.74609 11.6191 4.45898 11.9062 4.45898 12.2686C4.45898 12.6309 4.74609 12.918 5.1084 12.918Z"></path></svg></span>태그</th><td></td></tr></tbody></table></header><div class="page-body"><h2 id="0bb7b73c-6f10-4673-805d-dbae106f7ec8" class="">Framework</h2><ul id="3c4ad3bc-5d99-4d73-a94e-f0a5e660e7bd" class="bulleted-list"><li style="list-style-type:disc"> 웹 애플리케이션을 빠르게 개발할 수 있도록 도와주는 도구</li></ul><ul id="2e432a9e-a92d-4a43-bc32-8d10999ae09b" class="bulleted-list"><li style="list-style-type:disc"> 개발에 필요한 기본 구조, 규칙, 라이브러리 등을 제공</li></ul><figure class="block-color-gray_background callout" style="white-space:pre-wrap;display:flex" id="931f0e52-7afc-4434-b726-1a67351b1393"><div style="font-size:1.5em"><span class="icon">🗒️</span></div><div style="width:100%">웹 서비스 개발에 필요한 것??<ul id="ae4928cb-bf5f-42c9-bd8f-600d937e7351" class="bulleted-list"><li style="list-style-type:disc">로그인, 로그아웃, 회원관리, 데이터베이스, 보안 등,,, 너무 많은 기술들이 필요</li></ul><ul id="bd04cf34-6614-4dc5-82fa-5e11520da554" class="bulleted-list"><li style="list-style-type:disc">모든걸 직접 만들 필요 없음</li></ul><ul id="f36c27a6-fe3d-4216-8805-b178aca7873c" class="bulleted-list"><li style="list-style-type:disc">잘 만들어 진 것들을 가져와 좋은 환경에서 잘 사용하는 것도 능력인 시대</li></ul></div></figure><figure class="block-color-gray_background callout" style="white-space:pre-wrap;display:flex" id="96aad531-56fd-4358-9e3e-0ce9dfac5519"><div style="font-size:1.5em"><span class="icon">❓</span></div><div style="width:100%">프레임워크를 사용하는 이유<ul id="927061ee-ec0e-4f2a-a879-008bbc838f93" class="bulleted-list"><li style="list-style-type:disc">기본적인 구조, 도구, 규칙 등을 제공하기 떄문에 개발자는 필수적인 해야하는 핵심 개발에만 집중 할 수 있음</li></ul><ul id="09873a82-638d-4a21-8495-3c31902d5ec7" class="bulleted-list"><li style="list-style-type:disc">여러 라이브러리를 제공해 개발 소곧를 빠르게 할 수 있음 ( 생산성 )</li></ul><ul id="e4b07adb-3282-4aa8-a223-5519663dc6d5" class="bulleted-list"><li style="list-style-type:disc">유지보수와 확장에 용이해 소프트웨어의 품질을 높임</li></ul></div></figure><p id="c9f5f1be-ac0d-42dc-a75d-e2893d2f8c36" class="">
+</p><h3 id="4dfe21da-1326-4b23-ada2-b30144f5f777" class="">클라이언트와 서버</h3><figure class="block-color-gray_background callout" style="white-space:pre-wrap;display:flex" id="99de5a1a-83e8-45bc-adbc-fd8e6bd59679"><div style="font-size:1.5em"><span class="icon">💡</span></div><div style="width:100%">웹의 동작 방식<ul id="28777e3e-f277-4693-9224-49b959a68ab2" class="bulleted-list"><li style="list-style-type:disc">클라이언트 - 서버 구조<ul id="c5fc888f-fbbb-4715-bcef-d274ac7e4a7a" class="bulleted-list"><li style="list-style-type:circle">클라이언트 ( client ) : 서비스를 요청하는 주체 ( 웹 사용자의 인터넷이 연결된 장치, 웹 브라우저 )</li></ul><ul id="8172c346-05bd-4aea-a2db-d966e54b59b5" class="bulleted-list"><li style="list-style-type:circle">서버 ( server ) : 클라이언트의 요청에 응답하는 주체 ( 웹 페이지, 앱을 저장하는 컴퓨터 )</li></ul></li></ul></div></figure><figure class="block-color-gray_background callout" style="white-space:pre-wrap;display:flex" id="a27a3b8e-71c7-4242-abd9-99de5df0489e"><div style="font-size:1.5em"><span class="icon">🗒️</span></div><div style="width:100%">우리가 웹 페이지를 보게 되는 과정<ol type="1" id="e02cb805-275d-440c-9502-f613d566ceae" class="numbered-list" start="1"><li>웹 브라우저 ( 클라이언트 )에서 ‘google.com’을 입력</li></ol><ol type="1" id="57e9eb25-aa93-48e0-9543-2a120afae236" class="numbered-list" start="2"><li>브라우저는 인터넷에 연결된 전 세계 어딘 가에 있는 구글 컴퓨터 ( 서버 )에게 ‘Google 홈페이지.html’ 파일을 달라고 요청</li></ol><ol type="1" id="0b864c43-e390-4f02-a7a3-1f80e660c179" class="numbered-list" start="3"><li>요청을 받은 구글 컴퓨터는 데이터베이스에서 ‘Google 홈페이지.html’ 파일을 찾아 응답</li></ol><ol type="1" id="5bc54e29-d14c-4464-b2c0-1519e4690702" class="numbered-list" start="4"><li>전달받은 Google 홈페이지.html 파일을 웹 브라우저가 사람이 볼 수 있도록 해설해주면서 사용자는 구글의 메인 페이지를 보게 됨</li></ol></div></figure><p id="924349ee-31e5-4d90-9dc0-45ef6447f952" class="">
+</p><h3 id="d6fad0b3-3791-4416-b4ab-0d9a5652868d" class="">가상환경</h3><ul id="0e12504b-5e28-41d3-ab7f-3e82eeba9bd7" class="bulleted-list"><li style="list-style-type:disc">Python 애플리케이션과 그에 따른 패키지들을 격리하여 관리할 수 있는 <mark class="highlight-teal">독립적인</mark> 실행 환경</li></ul><details open=""><summary style="font-weight:600;font-size:1.25em;line-height:1.3;margin:0">가상환경 상황에서 일어날 수 있는 시나리오들</summary><div class="indented"><figure class="block-color-gray_background callout" style="white-space:pre-wrap;display:flex" id="2c9fccf0-57ca-432f-90e3-5a2995a2ed40"><div style="font-size:1.5em"><span class="icon">🗒️</span></div><div style="width:100%">가상 환경이 필요한 시나리오 1<ul id="fce23f08-3948-4eec-833d-a98576e66099" class="bulleted-list"><li style="list-style-type:disc">한 개발자가 2개의 프로젝트 ( A와 B )를 진행해야 함</li></ul><ul id="56aa54b7-26ce-44bb-ae48-a0a79113a08f" class="bulleted-list"><li style="list-style-type:disc">프로젝트 A는 request 패키지 버전 1을 사용해야 함</li></ul><ul id="fbf03490-58e3-4c67-982c-1ee59d9d4ce0" class="bulleted-list"><li style="list-style-type:disc">프로젝트 B는 request 패키지 버전 2을 사용해야 함</li></ul><ul id="4a263ea3-0382-40a6-87da-d4b9db9f2df8" class="bulleted-list"><li style="list-style-type:disc">하지만 Python 환경에서 패키지는 1개의 버전만 존재할 수 있음</li></ul><ul id="63b5af2f-a918-40c1-95ea-cf3a18b8406e" class="bulleted-list"><li style="list-style-type:disc">A와 B 프로젝트 다른 패키지 버전 사용을 위한 <mark class="highlight-teal">독립적인 개발 환경</mark>이 필요함</li></ul></div></figure><figure class="block-color-gray_background callout" style="white-space:pre-wrap;display:flex" id="ae543e1d-3af0-403e-85e0-245749a9d9db"><div style="font-size:1.5em"><span class="icon">🗒️</span></div><div style="width:100%">가상 환경이 필요한 시나리오 2<ul id="04e2cd9c-f3b2-40c1-bd61-3e63fad174a9" class="bulleted-list"><li style="list-style-type:disc">한 개발자가 2개의 프로젝트 ( A와 B )를 진행해야 함</li></ul><ul id="a81d17c9-5b9c-4c29-8a76-79d86f08e677" class="bulleted-list"><li style="list-style-type:disc">프로젝트 A는 water라는 패키지를 사용해야 함</li></ul><ul id="5c49a0d4-3e79-4884-ac78-cb02dd1efbea" class="bulleted-list"><li style="list-style-type:disc">프로젝트 B는 fire라는 패키지를 사용해야 함</li></ul><ul id="7f90163d-d887-499a-98ad-41e5d1702dae" class="bulleted-list"><li style="list-style-type:disc">하지만 Python 환경에서 water 패키지와 fire 패키지를 함께 사용하면 충돌이 발생하기 때문에 설치할 수 없음</li></ul><ul id="cd338072-3464-4c80-97d5-f3c8504ed8a0" class="bulleted-list"><li style="list-style-type:disc">A와 B 프로제가트의 패키지 충돌을 피하기 위해 각각 <mark class="highlight-teal">독립적인 개발 환경</mark>이 필요함</li></ul></div></figure><figure class="block-color-gray_background callout" style="white-space:pre-wrap;display:flex" id="4031826e-a71f-4b1a-a198-f7267a0d921a"><div style="font-size:1.5em"><span class="icon">🗒️</span></div><div style="width:100%">패키지 목록이 필요한 시나리오<ul id="2f1df7b0-3b78-4f5d-a35c-648cbe7bb777" class="bulleted-list"><li style="list-style-type:disc">만약 2명 ( A와 B )의 개발자가 하나의 프로젝트를 함께 개발한다고 하자</li></ul><ul id="e2dba177-ff04-40a7-859c-ceb6052f3f75" class="bulleted-list"><li style="list-style-type:disc">팀원 A가 먼저 가상환경을 생성 후 프로젝트를 설정하고 관련된 패키지를 설치하고 개발하다가 협업을 위해 hithub에 프로젝트를 push함</li></ul><ul id="47657faf-d221-4c1c-a115-3908b3d44b15" class="bulleted-list"><li style="list-style-type:disc">팀원 B는 해당 프로젝트를 clone 받고 실행해보려 하지만 실행되지 않음</li></ul><ul id="34d5892c-51db-4b72-b7cd-4a372b8cd1e1" class="bulleted-list"><li style="list-style-type:disc">팀원 A가 이 프로젝트를 위해 어떤 패키지를 설치했고, 어떤 버전을 설치했는지 A의 가상환경 상황을 알 수 없음</li></ul><ul id="8d6cd905-2375-4a9f-9a88-76bd6ea0011d" class="bulleted-list"><li style="list-style-type:disc">가상환경에 대한 모습 즉 <mark class="highlight-teal">패키지 목록</mark>이 공유되어야 함</li></ul></div></figure><p id="045f94ac-3667-4050-9106-4516fc1f7c72" class="">⭐Python global 환경에서 생성하고 이용</p><p id="cb55c86c-e5ad-448c-9528-4154191fe175" class="">
+</p></div></details><h3 id="7e0e3463-7910-4911-9636-728ccd3bd36d" class="">가상환경 venv 생성 ( 루틴 )</h3><pre id="a8bbafe1-668f-4d07-ae5c-78ef0719eed7" class="code"><code>--------------------
+1. 가상환경 venv 생성
+--------------------
+$ python -m venv venv
+# 마지막 venv = 이름 위치 ( 마음대로 지정해도 되지만 그러지 않음 )
+# venv로 하는 이유 : gitignore 파일을 자동생성 할 때 venv 경로로 저장되어 있어서
+# 이름을 달리 할 때 git에 push시 모든게 업로드되게 됨
+# gitignore.io에서 ignore파일 자동 생성하자
+
+-----------------
+2. 가상환경 활성화
+-----------------
+$ source venv/Scripts/activate
+# on / off 개념으로 사용하며, 하나의 git bash 창에서는 하나의 가상환경만을 활성화 할 수 있음
+# 여러 개 사용하고 싶으면 여러 창의 git bash를 열어 각각 사용하면 됨
+# 활성화하게 되면 디렉토리 위에 ( 활성화된 폴더 이름 )이 나타나게 됨
+$ deactivate
+# 가상환경을 off하여 global ( 원래 상태 )로 돌아옴
+# git bash 창을 닫으면 자동으로 off로 전환 됨
+
+--------------
+3. Django 설치
+--------------
+$ pip install Django
+
+----------------------------
+환경에 설치된 패키지 목록 확인
+----------------------------
+$ pip list
+
+-------------------------
+4. 의존성 패키지 목록 생성
+-------------------------
+$ pip freeze &gt; requirments.txt
+
+------------------------------------------------
+받은 패키지 목록 ( 상대방의 패키지 목록 ) 일괄 설치
+------------------------------------------------
+$ pip install -r name.txt
+
+</code></pre><hr id="8265b926-fce2-4318-8e18-810d227f1ad9"/><h2 id="86fddf37-692f-454c-9d31-f6470ce12ae0" class="">django</h2><ul id="8d58bc52-953c-4bf9-84bd-1103f592c33e" class="bulleted-list"><li style="list-style-type:disc">Python 기반의 대표적인 웹 프레임워크</li></ul><pre id="a83fa8bb-307d-43c4-b043-b8b7e889beec" class="code"><code>-------------------
+Django 프로젝트 생성
+-------------------
+$ django-admin startproject ( 프로젝트 이름 ) .
+# ( 프로젝트 이름 )의 프로젝트 폴더를 생성
+
+----------------
+Django 서버 실행
+----------------
+$ python manage.py runserver
+
+----------------
+Django 서버 종료
+----------------
+ctrl + c
+# 반드시 정상적으로 종료를 해야 함
+# 강제 종료시 귀찮은 경우가 생길 수 있음</code></pre><figure class="block-color-gray_background callout" style="white-space:pre-wrap;display:flex" id="6efb1eed-a270-4057-abeb-6e1f3c8b09cb"><div style="font-size:1.5em"><span class="icon">🗒️</span></div><div style="width:100%">Django 프로젝트 생성 루틴 정리<ol type="1" id="0e0a95f5-2de8-4686-af45-acc22469e79f" class="numbered-list" start="1"><li>가상환경 생성</li></ol><ol type="1" id="cd9ebf32-eb5c-4feb-a794-ab3d82c2dded" class="numbered-list" start="2"><li>가상환경 활성화</li></ol><ol type="1" id="1963e13f-b22c-4c02-9593-45dfc8bd3be5" class="numbered-list" start="3"><li>Django 설치</li></ol><ol type="1" id="59698c40-9026-4d8a-b861-1ddf0ecb878c" class="numbered-list" start="4"><li>의존선 파일 생성 ( 패키지 설치시마다 진행 )</li></ol><ol type="1" id="6d159c05-2de5-45b1-8b5e-6e205c539778" class="numbered-list" start="5"><li>.gitignore 파일 생성 ( 첫 add 전 )</li></ol><ol type="1" id="63f3a541-dd15-4848-910a-f9566c7ab75f" class="numbered-list" start="6"><li>git 저장소 생성</li></ol><ol type="1" id="1ca4a18d-e15c-4295-8922-8a1cc4572a27" class="numbered-list" start="7"><li>Django 프로젝트 생성</li></ol></div></figure><h3 id="2c64c8be-e00b-4663-bef2-102bd4ecc1f5" class="">Django project</h3><ul id="bb023730-85d9-4556-bf14-b9aad73cf3c0" class="bulleted-list"><li style="list-style-type:disc">애플리케이션의 집합 ( DB 설정, URL 연결, 전체 앱 설정 등을 처리 )</li></ul><h3 id="1b9c6d37-d3ec-48b8-b896-5687994d005b" class="">Django application</h3><ul id="9e65c967-fed6-4e26-83c4-4660722915db" class="bulleted-list"><li style="list-style-type:disc">독립적으로 작동하는 기능 단위 모듈 ( 각자 특정한 기능을 담당하며 다른 앱들과 함께 하나의 프로젝트를 구성 )</li></ul><pre id="e95ae508-e26e-4bb9-b9db-4fc0059b59ec" class="code"><code>application 순서 꼭! 지켜야 함
+-&gt; 생성 후 등록
+
+-------------------
+1. application 생성
+-------------------
+$ python manage.py startapp ( 폴더, 앱 이름 )
+# 앱의 이름은 &#x27;복수형&#x27;으로 지정하는 것을 권장
+# 생성된 폴더, 앱은 manage.py와 같은 레벨의 디렉토리에 생성되기 때문에
+# manage.py는 자동으로 인식하지 못함
+# 생성 후 등록해야함
+
+-----------------------
+2. application 등록하기
+-----------------------
+# 생성한 application의 settings.py 안의 INSTALLED_APPS 부분 
+# 최상단에 application 이름 넣기
+INSTALLED_APPS = [
+    &#x27;articles&#x27;,  &lt;- ********
+    &#x27;django.contrib.admin&#x27;,
+    &#x27;django.contrib.auth&#x27;,
+    &#x27;django.contrib.contenttypes&#x27;,
+    &#x27;django.contrib.sessions&#x27;,
+    &#x27;django.contrib.messages&#x27;,
+    &#x27;django.contrib.staticfiles&#x27;,
+]
+# 우리가 만드는 application은 상단 부분 ( local app ) 자리에 넣는다</code></pre><p id="a8bbeba3-5de6-45ca-8b61-8a491c1217ab" class="">
+</p><hr id="2230933b-8767-4aa8-b3fb-6f17404dc96b"/><h2 id="ca44345f-4d52-4c9d-ae67-1199b67142ff" class="">디자인 패턴</h2><ul id="864337a6-2315-4a1b-8e95-86e07e2236f0" class="bulleted-list"><li style="list-style-type:disc">소프트웨어 설계에서 발생하는 문제를 해결하기 위한 일반적인 해결책</li></ul><ul id="02d28326-a04a-4c66-b373-0756908ac14a" class="bulleted-list"><li style="list-style-type:disc">공통적인 문제를 해결하는데 쓰이는 형식화 된 관행</li></ul><h3 id="ec4fa537-af07-406f-b01f-97208d675adc" class="">MVC 디자인 패턴 ( Model, View, Controller )</h3><ul id="8be82f76-4eaf-41b7-bcfc-8fff33e85633" class="bulleted-list"><li style="list-style-type:disc">애플리케이션을 구조화하는 대표적인 패턴</li></ul><ul id="b0ed62dc-4ec0-4020-8584-2d9f891daf03" class="bulleted-list"><li style="list-style-type:disc">데이터, UI, 비즈니스 로직을 분리</li></ul><ul id="9e723ef3-e1ef-469a-bb4f-bd0e43a5e724" class="bulleted-list"><li style="list-style-type:disc">시각적 요소와 뒤에서 실행되는 로직을 서로 영향 없이, 독립적이고 쉽게 유지 보수할 수 있는 애플리케이션을 만들기 위해 사용</li></ul><h3 id="3795a872-d67b-478f-a424-57522c2b20f6" class="">MTV 디자인 패턴 ( Model, Template, View )</h3><ul id="93e99299-c551-44ff-80a8-9d00338f3ebd" class="bulleted-list"><li style="list-style-type:disc">Django에서 애플리케이션을 구조화하는 패턴</li></ul><ul id="3f5fe76c-4723-4f0d-abb4-61574d3da480" class="bulleted-list"><li style="list-style-type:disc">기존 MVC 패턴과 동일하나 명칭을 다르게 정의한 것</li></ul><ul id="5fceabef-b93b-460d-a6c2-8ad53760694f" class="bulleted-list"><li style="list-style-type:disc">Template = View, View = Controller</li></ul><figure class="block-color-gray_background callout" style="white-space:pre-wrap;display:flex" id="54cf3f5b-54da-472d-a6cf-26f04520b24b"><div style="font-size:1.5em"><span class="icon">💡</span></div><div style="width:100%">Django 프로젝트 구조<ul id="b717019e-edeb-4ffa-8248-1c8d99408ee3" class="bulleted-list"><li style="list-style-type:disc"><mark class="highlight-teal">settings.py</mark> : 프로젝트의 모든 설정을 관리</li></ul><ul id="f1aa6af4-3768-4965-962d-e7f4a7823596" class="bulleted-list"><li style="list-style-type:disc"><mark class="highlight-teal">urls.py</mark> : URL과 이에 해당하는 적절한 views를 연결</li></ul><ul id="dd2ca620-79ea-4a8b-a446-519ce97ff262" class="bulleted-list"><li style="list-style-type:disc">__init__.py : 해당 폴더를 패키지로 인식하도록 설정</li></ul><ul id="1a0dc50e-05f8-4c36-a856-7eefd4947b73" class="bulleted-list"><li style="list-style-type:disc">asgi.py : 비동기식 웹 서버와의 연결 관련 설정</li></ul><ul id="0318ebb6-6508-445c-b743-8e5e4d6eb52e" class="bulleted-list"><li style="list-style-type:disc">wsgi.py : 웹 서버와의 연결 관련 설정</li></ul><ul id="251ce398-3898-4b67-a617-46b81f3d24b7" class="bulleted-list"><li style="list-style-type:disc">manage.py : Django 프로젝트와 다양한 방법으로 상호작용하는 커맨드라인 유틸리티</li></ul></div></figure><figure class="block-color-gray_background callout" style="white-space:pre-wrap;display:flex" id="f89062ab-3b73-4e08-8ec7-6df8f8a7464b"><div style="font-size:1.5em"><span class="icon">💡</span></div><div style="width:100%">Application 구조<ul id="482c00e6-107f-42af-8ad3-3d82e9c877b9" class="bulleted-list"><li style="list-style-type:disc"><mark class="highlight-teal">admin.py</mark> : 관리자용 페이지 설정</li></ul><ul id="7d26543b-cd89-49a9-9693-99f9a0778c21" class="bulleted-list"><li style="list-style-type:disc"><mark class="highlight-teal">models.py</mark> : DB와 관련된 Model을 정의, MTV 패턴의 M</li></ul><ul id="4172e1f6-fd46-4dcc-af8d-0deb9f019368" class="bulleted-list"><li style="list-style-type:disc">⭐<mark class="highlight-teal">views.py</mark> : HTTP 요청을 처리하고 해당 요청에 대한 응답을 반환 ( url, mode, template과 연계 ), MTV 패턴의 V</li></ul><ul id="b34fa722-355b-4079-8f48-db56c6019624" class="bulleted-list"><li style="list-style-type:disc">apps.py : 앱의 정보가 작성된 곳</li></ul><ul id="b13be417-a66e-414b-90d1-eba1b3011194" class="bulleted-list"><li style="list-style-type:disc">tests.py : 프로젝트 테스트 코드를 작성하는 곳</li></ul></div></figure><figure class="block-color-gray_background callout" style="white-space:pre-wrap;display:flex" id="49a80ed8-b179-4c84-8c06-9cfb46ebffc0"><div style="font-size:1.5em"><span class="icon">❗</span></div><div style="width:100%">Django와 요청 &amp; 응답<ol type="1" id="a57056d8-f068-41a7-a7d0-0311299ef84c" class="numbered-list" start="1"><li>클라이언트에서 요청</li></ol><ol type="1" id="65e9e561-7162-4b4b-ae11-38ae3f489fed" class="numbered-list" start="2"><li>urls.py에서 요청을 받고 views.py에 전달</li></ol><ol type="1" id="669e0f54-1dd5-4354-aa85-23e2c5d60803" class="numbered-list" start="3"><li>models.py에서 정보를 가져와 templates로 조물조물</li></ol><ol type="1" id="49c468ad-8eef-455e-aa91-7842d59dc24c" class="numbered-list" start="4"><li>views.py에서 만들어서 요청에 대한 응답( 응답 객체 )을 전달</li></ol><ol type="1" id="0e72a7fe-b41c-4f24-a688-9ccf21edd0ea" class="numbered-list" start="5"><li>해당 응답 객체를 브라우저 ( 크롬 )에서 사용자가 보기 쉽게 변환? 전환? 번역? </li></ol></div></figure><p id="6286462e-cedb-4d6b-8fc0-fd95e73019d9" class="">
+</p><h2 id="ea330a2b-6d85-4545-9623-0f73da9f9de8" class="">⭐요청과 응답</h2><pre id="c35c0f01-5aa6-4049-9deb-30be332efd30" class="code"><code>--------------------------------------------
+1. articles로 요청이 왔을 때 어떻게 처리할 지
+--------------------------------------------
+# urls.py
+from django.contrib import admin
+from django.urls import path
+from articles import views  &lt;- 추가
+
+urlpatterns = [
+    path(&#x27;admin/&#x27;, admin.site.urls),
+    path(&#x27;articles/&#x27;, views.index) &lt;- 추가
+]</code></pre></div></article></body></html>
