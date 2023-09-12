@@ -3,6 +3,7 @@
 
 # 2. http://127.0.0.1:8000/hello로 받은 요청을 통해 my_app 앱의 views.py에 있는 hello 함수를 실행시킬 수 있도록 아래 urls.py를 작성하시오 
 from django.urls import path
+from my_apps import views
 urlpatterns = [
-    
+    path('hello/', views.hello)
 ]
