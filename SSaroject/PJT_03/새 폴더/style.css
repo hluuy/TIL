@@ -1,0 +1,53 @@
+*{
+    font-family: 'Noto Sans KR', sans-serif;
+}
+
+.frontpage{
+    height: 300px;
+    background-color: lightgray;
+}
+
+.intro{
+    height: 300px;
+}
+
+.project{
+    height: 300px;
+    background-color: lightgray;
+}
+
+.skills{
+    height: 300px;
+}
+
+.footer{
+    height: 50px;
+    background-color: black;
+    color: white;
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* 1. not-provided 클래스를 기본적으로 보이지 않도록 설정 */
+.not-provided{
+    display: none;
+}
+
+/* 2. 470 밑으로 가면, not-provided 얘만 보이도록 설정 */
+@media (max-width: 470px){
+    main,
+    section,
+    nav,
+    /* 우선순위 */
+    footer{
+        display: none;
+    }
+    .not-provided{
+        display: block;
+    }
+}
