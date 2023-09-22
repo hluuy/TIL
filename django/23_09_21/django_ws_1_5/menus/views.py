@@ -23,17 +23,18 @@ def drink(request):
 
 def receipt(request):
     order = request.GET.get('message')
+    lower_order = order.lower()
     context ={
-        'order' : order,
+        'order' : lower_order,
         'lst' : ['피자',
         '치킨',
         '국밥',
         '초밥',
         '민초흑당로제마라탕',
-        'Cider',
-        'Coke',
-        'Miranda',
-        'Fanta',
-        'Eye of finetree']
+        'cider',
+        'coke',
+        'miranda',
+        'fanta',
+        'eye of finetree']
     }
     return render(request, 'menus/receipt.html', context)
