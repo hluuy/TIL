@@ -1,0 +1,14 @@
+{% extends "movies/base.html" %}
+
+{% block title %}
+<h1>Create</h1>
+{% endblock title %}
+{% block content %}
+<form action="{% url 'movies:create' %}" method="POST">
+	{% csrf_token %}
+	{{ form.as_p }}
+	<input type="submit" value='등록'>
+</form>
+<hr>
+<a href="{% url 'movies:index' %}">[back]</a>
+{% endblock content %}

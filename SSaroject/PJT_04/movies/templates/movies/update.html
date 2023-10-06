@@ -1,0 +1,20 @@
+{% extends "movies/base.html" %}
+
+{% block title %}
+<h1>UPDATE</h1>
+<hr>
+{% endblock title %}
+{% block content %}
+{% comment %} <form action="{% url 'movies:update' movie.pk %}" method="POST">
+	{% csrf_token %}
+	{{ form.as_p }}
+	<input type="submit" value='등록'>
+</form>
+<hr>
+<a href="{% url 'movies:index' %}">[back]</a> {% endcomment %}
+	<form action="" method="POST">
+		{% csrf_token %}
+		{{ form.as_p }}
+		<input type="submit" value="Submit">
+	</form>    
+{% endblock content %}

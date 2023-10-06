@@ -1,0 +1,25 @@
+{% extends "movies/base.html" %}
+
+{% block title %}
+<h1>INDEX PAGE</h1>
+<hr>
+{% endblock title %}
+{% block content %}
+    {% for movie in movies %}
+        <div class="card" style="width: 18rem;">
+            <div class="card-body">
+            <h3 class="card-title">{{ movie.title }}</h3>
+            <p class="card-text">{{ movie.content }}</p>
+            <a href="{% url 'movies:detail' movie.pk %}" class="card-link">Detail</a>
+            </div>
+        </div>
+        {% comment %} <div class="card">
+            <a href="{% url 'movies:detail' movie.pk %}">
+            <div class="card-body">
+            <h5 class="card-title">{{ movie.title }}</h5>
+            <p class="card-text">{{ movie.content }}</p>
+            </div>
+        </div> {% endcomment %}
+    {% endfor %}
+<a href="{% url 'movies:create' %}">Create</a>
+{% endblock content %}
