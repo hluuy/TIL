@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Articles</title>
+</head>
+<body>
+    <h1>메인 페이지</h1>
+    <a href="{% url 'articles:new' %}">[CREATE]</a>
+    <hr>
+    <ul>
+    {% for article in articles %}
+        <p>{{ article.pk }}번째 글</p>
+        <p>제목 : {{ article.title }}</p> 
+        <a href="{% url 'articles:detail' article.pk %}">[DETAIL]</a>
+        <hr>
+    {% endfor %}
+    </ul>
+</body>
+</html>
