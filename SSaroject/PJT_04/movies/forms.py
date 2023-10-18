@@ -4,4 +4,5 @@ from .models import Movie
 class MovieForm(forms.ModelForm):
     class Meta:
         model = Movie
-        fields = ('title', 'content',)
+        # fields = ('title', 'content',)
+        fields = '__all__'
