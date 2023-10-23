@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+</head>
+<body>
+  <h1>오늘 할 일</h1>
+  <hr>
+  <ul>
+    <li>수업 복습 하기</li>
+    <li>실습 문제 풀기</li>
+    <li>스터디 참여하기</li>
+    <li>1 일 1 커밋하기</li>
+    <li id="game">게임 하기</li>
+  </ul>
+  <script>
+    // 아래에 코드 작성
+    title = document.querySelector('h1')
+    console.log(title)
+    title.textContent = '오늘 공부 목록'
+
+    studyList = document.querySelector('ul')
+    console.log(studyList)
+    studyList.classList.add('study')
+    studyList.classList.add('list-group')
+
+    li1 = document.querySelector('ul > li:nth-child(1)')
+    li2 = document.querySelector('ul > li:nth-child(2)')
+    li3 = document.querySelector('ul > li:nth-child(3)')
+    li4 = document.querySelector('ul > li:nth-child(4)')
+
+    li1.classList.add('list-group-item')
+    li2.classList.add('list-group-item')
+    li3.classList.add('list-group-item')
+    li4.classList.add('list-group-item')
+
+    li2.classList.add('active')
+    li2.setAttribute('aria-current', true)
+
+    // todoList = document.querySelectorAll('li')
+    // console.log(todoList)
+    // todoList.classList.add('list-group-item')
+
+    itemGame = document.querySelector('#game')
+    console.log(itemGame)
+
+    studyList.removeChild(itemGame)
+  </script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
+</body>
+</html>
