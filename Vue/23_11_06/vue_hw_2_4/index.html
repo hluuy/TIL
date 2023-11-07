@@ -25,10 +25,10 @@
 
     <form>
       <label for="color">색 입력 : </label>
-      <input type="text" id="color" v-model = "colorType">
+      <input type="text" id="color" v-model="colorType">
       <br>
       <label for="font">글꼴 입력 : </label>
-      <input type="text" id="color" v-model = "fontType">
+      <input type="text" id="color" v-model="fontType">
       <br>
       <button @click.prevent="changeStyle">변경!</button>
     </form>
@@ -57,26 +57,25 @@
         const styleObject = ref({})
 
         const changeStyle = () => {
-            const style = {
-              'color': colorType.value,
-              'font-family': fontType.value,
-            }
-            styleObject.value = style
-            colorType.value = ''
-            fontType.value = ''
+          const style = {
+            'color' : colorType.value,
+            'font-family' : fontType.value
+          }
+          styleObject.value = style
+          colorType.value = ''
+          fontType.value = ''
+          
 
         }
-        
 
-        return {
+        return{
           colorType,
           fontType,
           styleObject,
           changeStyle
+
         }
       }
-
-      
     })
     app.mount('#app')
   </script>
