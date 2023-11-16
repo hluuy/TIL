@@ -5,4 +5,6 @@ class Movie(models.Model):
     release_date = models.DateField()
     overview = models.TextField()
     vote_average = models.FloatField()
+    popularity = models.FloatField()
+    poster_path = models.TextField()
     # 기타 필요한 필드 추가
