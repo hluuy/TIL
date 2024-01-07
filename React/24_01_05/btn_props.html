@@ -7,10 +7,11 @@
   <script src="https://unpkg.com/react-dom@18/umd/react-dom.production.min.js"></script>
   <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
   <script type="text/babel">
-    function Btn(props) {
-      console.log(props);
+    function Btn({title, changeValue}) {
+      console.log(title);
       return (
         <button
+        onClick={changeValue}
           style={{
             backgroundColor: "tomato",
             color: "white",
@@ -19,14 +20,16 @@
             borderRadius: 10,
           }}
         >
-          {props.title}
+          {title}
         </button>
       );
     }
     function App() {
+      const [value, setValue] = React.useState("Save Changes");
+      const changeValue = () => setValue("Revert Changes");
       return (
         <div>
-          <Btn title="Save Changes" />
+          <Btn title={value} changeValue={changeValue} />
           <Btn title="Continue" />
         </div>
       );
