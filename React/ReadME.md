@@ -43,3 +43,18 @@ MyComponent.propTypes = {
 ```
 
 https://ko.legacy.reactjs.org/docs/typechecking-with-proptypes.html#proptypes
+
+## 24.01.09
+
+-   react 앱 생성하기
+
+```
+원하는 디렉토리에 앱 생성 ( 앱 이름 이후 한 칸 띄우고 .찍기 )
+npx create-react-app app_name .
+
+생성된 앱 이름의 폴더로 이동
+cd app_name
+
+실행
+npm start
+```
