@@ -58,3 +58,19 @@ cd app_name
 실행
 npm start
 ```
+
+-   생성 시 에러 뜰 때
+
+```
+npm install -g npm@latest
+실행하고 진행해보기
+```
+
+-   react jsx 작성 시, html 태그 자동완성 안될 때  
+    https://doishalf.tistory.com/59
+-   useEffect 적용 시, console log가 2 번씩 실행 될 때  
+    index.js의 <React.StrictMode></React.StrictMode> 태그로 감싸져 있어서 그렇다. 해당 태그는 React에서 기본 제공하는 검사 도구인데, 개발 모드일 때만 디버그를 하여 해당 태그로 감싸져 있는 부분은 자손까지 검사를 진행하게 된다.  
+    https://velog.io/@hyes-y-tag/React-useEffect%EA%B0%80-%EB%91%90%EB%B2%88-%EC%8B%A4%ED%96%89%EB%90%9C%EB%8B%A4%EA%B3%A0
+-   Memo 대신 useEffect를 사용하는 이유?  
+    가장 큰 차이점은 useEffect는 해당 컴포넌트의 렌더링이 완료된 후에 실행되고, useMemo는 렌더링 중에 실행된다.  
+    https://velog.io/@jellyjw/React-useMemo%EC%99%80-useEffect-%EC%9D%B4%ED%95%B4%ED%95%98%EA%B8%B0
