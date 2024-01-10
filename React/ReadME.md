@@ -73,4 +73,26 @@ npm install -g npm@latest
     https://velog.io/@hyes-y-tag/React-useEffect%EA%B0%80-%EB%91%90%EB%B2%88-%EC%8B%A4%ED%96%89%EB%90%9C%EB%8B%A4%EA%B3%A0
 -   Memo 대신 useEffect를 사용하는 이유?  
     가장 큰 차이점은 useEffect는 해당 컴포넌트의 렌더링이 완료된 후에 실행되고, useMemo는 렌더링 중에 실행된다.  
+    렌더링이 계속 된다면, 특히 특정 api를 불러오게 되는 경우 계속해서 불러오는 문제가 생길 수 있다.  
+    state를 변경할 때, 계속해서 렌더링 되는 문제점이 존재한다. 많은 state가 존재한다면 성능 저하 문제가 발생할 수 있다. 이런 문제를 해결하기 위해 사용한다.
     https://velog.io/@jellyjw/React-useMemo%EC%99%80-useEffect-%EC%9D%B4%ED%95%B4%ED%95%98%EA%B8%B0
+-   그래서 useEffect가 정확하게 뭔데?  
+     useEffect는 화면이 다 그려지고 나서 실행됩니다. 즉 화면을 먼저 그리고 그다음 실행
+    따로 생명주기는 언급안하셔서 글 남깁니다. memo랑 헷갈리시는 분이 계시는데 이건 라이프 사이클이랑 연관이 있는 함수이고, 최초 실행만 할 것이냐, 아님 props, state에 따라(언급한 마법) 렌더링시 다시 그릴것이냐 판단하는 함수인듯 합니다.
+    class 문법 라이프 사이클 펑션을 함축해놓은게 useEffect 입니다.
+
+## 24.01.10
+
+-   useEffect 사용 방법
+    ```
+    useEffect (() => {}, [keyword]);
+    ```
+    keyword가 변화 할 때마다 useEffect 안의 코드 실행한다.  
+    대괄호 안이 비어 있을 경우, React가 지켜 볼 게 없으므로 처음 한 번만 실행한다.  
+    https://nomadcoders.co/react-for-beginners/lectures/3284/comments/74216
+-   Clean-up을 사용하는 이유  
+    clean-up이 필요한 경우가 있는데, 대표적인 예가 외부 데이터에 구독 ( subscription )을 설정해야 하는 경우이다. 이런 경우 메모리 누수가 발생하지 않도록 정리 ( clean-up )하는 것이 중요하다.  
+    effect에서 함수를 반환하는 이유는 추가적인 정리 ( clean up ) 메커니즘이다. 모든 effect는 정리를 위한 함수를 반환할 수 있다.
+-   React가 effect를 Clean-up하는 시점은 언제?  
+    React는 컴포넌트가 마운트 해제되는 때에 정리를 실행한다. effect는 한 번이 아니라 렌더링이 실행되는 때마다 실행된다. React가 다음 차례의 effect를 실행하기 전에 이전의 렌더링에서 파생된 effect 또한 정리하는 이유가 바로 이 때문이다.  
+    https://ko.reactjs.org/docs/hooks-effect.html#effects-with-cleanup
