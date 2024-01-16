@@ -96,3 +96,37 @@ npm install -g npm@latest
 -   React가 effect를 Clean-up하는 시점은 언제?  
     React는 컴포넌트가 마운트 해제되는 때에 정리를 실행한다. effect는 한 번이 아니라 렌더링이 실행되는 때마다 실행된다. React가 다음 차례의 effect를 실행하기 전에 이전의 렌더링에서 파생된 effect 또한 정리하는 이유가 바로 이 때문이다.  
     https://ko.reactjs.org/docs/hooks-effect.html#effects-with-cleanup
+
+## 24.01.16
+
+-   Todo List 만들기
+
+    input 밖에 form을 만들고 form에 submit이라는 이벤트를 이용할 거임  
+    toDo가 비어있으면 함수가 작동하지않도록 return을 하고, 마지막에 setToDo("")을 통해
+    Addtodo버튼을 누르면 toDo를 빈칸으로 만들도록한다.  
+    그 다음은 여러 toDo를 저장할 array를 만들 것이다.  
+    새로운 state를 만들고 toDos를 array로해서 직접적으로 State를 수정하는 방식이아닌
+    함수를 통해 State를 수정하는 방식을 택한다.  
+    즉 array에 직접적으로 수정하지 않고 element를 추가하는 방법이 필요하다.  
+    1번 방법 line12에서 toDo의 값을 공백으로 직접 바꾼(함수를 통해) 방법
+    2번 방법 setToDos안에 함수를 넣는 것 이 함수는 첫번째 argument로 현재의 state를 받아옴  
+    -> 현재의 state가 들어간 새로운 array를 리턴해주는 역할을 한다.  
+    즉 이 array에는 todo와 이전의 toDos를 가지게 됨  
+    array안에 다른 array의 요소들을 넣고 싶음  
+    number = [1,2,3]을 newNumber[4]에 넣고싶음 [4, ...number]을 사용  
+    즉 setToDos를 통해 현재의 배열ToDos(지금까지 넣은 엘리먼트 포함된 array)를 가져와 toDo를 추가하는 역할을 한다.  
+    마지막엔 toDos.length를 통해 array의 엘리먼트들의 개수를 h1태그를 통해 보여줌
+
+-   map()과 key값  
+    JavaScript map() 함수를 사용하여 numbers 배열을 반복 실행합니다. 각 항목에 대해 \<li> 엘리먼트를 반환하고 엘리먼트 배열의 결과를 listItems에 저장합니다.
+    ```
+    const numbers = [1, 2, 3, 4, 5];
+    const listItems = numbers.map((number) =>
+    <li>{number}</li>
+    );
+    ```
+    그러면 \<ul> 엘리먼트 안에 전체 listItems 배열을 포함할 수 있습니다.
+    ```
+    <ul>{listItems}</ul>
+    ```
+    https://ko.legacy.reactjs.org/docs/lists-and-keys.html
